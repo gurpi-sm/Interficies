@@ -96,6 +96,25 @@ button {
     margin-bottom: 10px;
 }
 
+p {
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.card h3 {
+    margin-top: 10px;
+    color: red; 
+}
+
+.card p {
+    margin-bottom: 15px;
+}
+
 /* --- MEDIA QUERIES (3 MEDIDAS) --- */
 
 /* Tablet*/
