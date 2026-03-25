@@ -148,26 +148,26 @@ footer a {
 .seleccion-container {
     display: flex;
     justify-content: center;
-    gap: 40px;                 /* Espacio entre tarjetas */
-    max-width: 1000px;         /* Aumentamos el ancho total del grupo */
+    gap: 40px;                 
+    max-width: 1000px;         
     margin: 3rem auto;
     grid-template-columns: none;
 }
 
-/* Tarjetas más anchas y estilizadas */
+
 .seleccion-container .card {
     flex: 1;
-    max-width: 400px;          /* ANTES 300px -> AHORA 400px (Más anchas) */
-    min-height: 480px;         /* Un poco más de altura para compensar el ancho */
+    max-width: 400px;          
+    min-height: 480px;         
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
-    padding: 2.5rem 2rem;      /* Más relleno interno para que el texto no toque los bordes */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5); /* Sombra suave para que resalten */
+    padding: 2.5rem 2rem;      
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
 }
 
-/* Mantenemos el diseño responsive para móviles */
+
 @media (max-width: 800px) {
     .seleccion-container {
         flex-direction: column;
@@ -175,7 +175,7 @@ footer a {
         padding: 0 20px;
     }
     .seleccion-container .card {
-        max-width: 100%;       /* En móvil ocupan todo el ancho disponible */
+        max-width: 100%;       
         min-height: auto;
     }
 }
