@@ -42,16 +42,19 @@
             <form action="../Controller/UserController.php">
                 <h2 class="form-title">Registro Aficionado</h2>
                 <label>Nombre completo
-                    <input type="text" placeholder="Tu nombre" required>
+                    <input type="text" name="FanName" placeholder="Tu nombre" required>
                 </label>
                 <label>Email
-                    <input type="email" required>
+                    <input type="email" name="FanEmail" required>
                 </label>
                 <label>Contraseña
-                    <input type="password" required minlength="6">
+                    <input type="password" name="FanPwd" required minlength="6">
+                </label>
+                <label>Confirmar Contraseña
+                    <input type="password" name="FanPwdCon" required minlength="6">
                 </label>
                 <label>Deporte favorito
-                    <select>
+                    <select name="FanSport">
                         <option>Fútbol</option>
                         <option>Baloncesto</option>
                         <option>Tenis</option>
@@ -70,7 +73,7 @@
                         <option>Natación</option>
                     </select>
                 </label>
-                <button type="submit">Crear cuenta Aficionado</button>
+                <button type="submit" value="register">Crear cuenta Aficionado</button>
             </form>
         </section>
     </div>

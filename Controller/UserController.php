@@ -44,32 +44,25 @@ class UserController
 
     public function register() {
         require_once '../Model/NextLvlBase.php';
-        if (!empty($_POST['FanName']) && !empty($_POST['FanEmail']) && !empty($_POST['FanPwd']) && !empty($_POST['FanSport'])) {
+        if (!empty($_POST['FanName']) && !empty($_POST['FanEmail']) && !empty($_POST['FanPwd'])&& !empty($_POST['FanPwdCon']) && !empty($_POST['FanSport'])) {
             $FanName = $_POST['FanName'];
             $FanEmail = $_POST['FanEmail'];
             $FanPwd = $_POST['FanPwd'];
+            $FanPwdCon = $_POST['FanPwdCon'];
             $FanSport = $_POST['FanSport'];
 
-            $aficionado = new Aficionado ($FanName,$FanEmail,$FanPwd,$FanSport);
+            $aficionado = new Aficionado ($FanName,$FanEmail,$FanPwd,$FanPwdCon,$FanSport);
 
             $db = new Database();
             $conn = $db->getConnection();
 
-            $aficionado->register($password_confirm, $conn);
+            $aficionado->register($FanPwdCon, $conn);
         }
 
     }
 
     public function login() {
-        
-        require_once '../Model/NextLvlBase.php';
-        $db = new Database();
-        $conn = $db->getConnection();
-        $sql = $conn -> query("INSERT INTO aficionado (Name, Pwd, Email, Sport)
-        values ('Pau Hernandez', '1234', 'pau@gmail.com', 'Futbol')");
-
-
-        $conn->close();
+    
     }
 
     public function logout() {
