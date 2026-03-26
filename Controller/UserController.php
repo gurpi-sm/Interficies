@@ -22,7 +22,7 @@ class UserController
         require_once '../Modelo/NextLvlBase.php';
         $db = new Database();
         $conn = $db->getConnection();
-        $sql = "INSERT INTO aficionado (Nombre_Completo, Contraseña, Email, DeporteFav)
+        $sql = "INSERT INTO aficionado (Name, Pwd, Email, Sport)
 values ('Pau Hernandez', '1234', 'pau@gmail.com', 'Futbol')";
 
         $conn->close();
