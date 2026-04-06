@@ -1,0 +1,108 @@
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: black; /* Fondo negro puro */
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.news-detail {
+    max-width: 800px;
+    width: 100%;
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    border-top: 5px solid red;
+}
+
+/* Header de la noticia (Alineado a la izquierda) */
+.news-detail header {
+    text-align: left;
+    border-bottom: 1px solid #333;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    background: transparent; /* Evita el fondo negro del otro CSS */
+}
+
+.news-detail h2 {
+    color: red;
+    font-size: 2.2rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.meta-info {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Contenido */
+.detail-content p {
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
+}
+
+.detail-content strong {
+    color: red;
+}
+
+/* Caja de Estadísticas */
+.stats-box {
+    background: #000;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid red;
+    margin: 2rem 0;
+}
+
+.stats-box h4 {
+    margin: 0 0 1rem 0;
+    color: red;
+    text-transform: uppercase;
+}
+
+/* Quitar puntos de la lista */
+.stats-box ul {
+    list-style: none; /* Crucial para que no salgan los puntos */
+    padding: 0;
+    margin: 0;
+}
+
+.stats-box li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* Botón Volver */
+.btn-back {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: red;
+    border: 2px solid red;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-back:hover {
+    background: red;
+    color: black;
+}
