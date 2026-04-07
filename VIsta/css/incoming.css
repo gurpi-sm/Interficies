@@ -1,0 +1,103 @@
+/* RESET GENERAL PARA ESTA PÁGINA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #000; /* Fondo negro absoluto de la pantalla */
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* CONTENEDOR PRINCIPAL (La tarjeta gigante) */
+.news-detail {
+    background-color: #1a1a1a; /* Gris muy oscuro como la de Mbappé */
+    width: 100%;
+    max-width: 1000px; /* Ancho ideal para lectura */
+    padding: 40px;
+    border-radius: 8px;
+    border-top: 5px solid red;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+/* TÍTULO PRINCIPAL */
+.news-detail h2 {
+    color: red;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+/* SUBTÍTULO / INFO */
+.meta-info {
+    color: #666;
+    font-size: 0.9rem;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+}
+
+/* TEXTO DE INTRODUCCIÓN */
+.detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+/* CAJA DE ESTADÍSTICAS (Igual a la de la imagen) */
+.stats-box {
+    background-color: #000; /* Fondo negro dentro de la caja gris */
+    border-left: 4px solid red;
+    padding: 25px;
+    margin: 30px 0;
+    border-radius: 4px;
+}
+
+.stats-box h4 {
+    color: red;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.stats-box ul {
+    list-style: none;
+}
+
+.stats-box li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+/* Estilo para resaltar la primera palabra de la estadística */
+.stats-box li strong {
+    color: red;
+    margin-right: 5px;
+}
+
+/* BOTÓN VOLVER */
+.btn-back {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 25px;
+    border: 1px solid red;
+    color: red;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background-color: red;
+    color: black;
+}
