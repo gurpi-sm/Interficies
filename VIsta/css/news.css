@@ -9,7 +9,6 @@ body {
     line-height: 1.6;
 }
 
-/* Contenedor principal */
 main {
     padding: 2rem;
     display: flex;
@@ -25,7 +24,6 @@ main {
     border-top: 5px solid red;
 }
 
-/* Header de la noticia (Alineado a la izquierda) */
 .news-detail header {
     text-align: left;
     border-bottom: 1px solid #333;
@@ -47,7 +45,6 @@ main {
     margin-top: 0.5rem;
 }
 
-/* Contenido */
 .detail-content p {
     font-size: 1.1rem;
     color: #e0e0e0;
@@ -73,9 +70,8 @@ main {
     text-transform: uppercase;
 }
 
-/* Quitar puntos de la lista */
 .stats-box ul {
-    list-style: none; /* Crucial para que no salgan los puntos */
+    list-style: none; 
     padding: 0;
     margin: 0;
 }
@@ -85,7 +81,6 @@ main {
     font-size: 1rem;
 }
 
-/* Botón Volver */
 .btn-back {
     display: inline-block;
     margin-top: 1rem;

@@ -115,6 +115,73 @@ footer a {
     margin-bottom: 15px;
 }
 
+.btn-back {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 2rem;
+    background: transparent;
+    color: red;
+    border: 2px solid red;
+    border-radius: 6px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* --- CLASE ÚNICA PARA LAS TARJETAS DE NOTICIAS --- */
+.news-card {
+    background: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 5px solid red;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/* Controla el título (siempre 2 líneas) */
+.news-card h3 {
+    margin-top: 0;
+    color: red;
+    min-height: 3.2em; 
+    line-height: 1.6;
+    /* Compatibilidad para truncar texto */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2; /* Propiedad estándar que te pedía el editor */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Controla el párrafo y empuja el botón al fondo */
+.news-card p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+/* Controla el diseño del botón */
+.news-card button {
+    background: red;
+    color: black;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.news-card button:hover {
+    background: #cc0000;
+}
 /* --- MEDIA QUERIES (3 MEDIDAS) --- */
 
 /* Tablet*/
