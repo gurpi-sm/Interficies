@@ -84,7 +84,11 @@ class UserController
         exit();
     }
 
-    public function login() {}
+    public function login() {
+        
+        require_once '../Model/NextLvlBase.php';
+
+    }
 
     public function logout() {}
 
