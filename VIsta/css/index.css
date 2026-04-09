@@ -171,7 +171,7 @@ body {
     
     /* SOLUCIÓN AL FONDO: Menos opacidad (0.4) para que la foto brille más */
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)),
-                url("/Vista/assets/images/mw-1920.jpg") center / cover no-repeat;
+                url("../assets/images/mw-1920.jpg") center / cover no-repeat;
     background-attachment: scroll; /* Cambiado de fixed a scroll para evitar desenfoque */
 }
 
