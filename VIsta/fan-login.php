@@ -1,28 +1,53 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+?>
+
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Next Level Sports</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
 
-<header>
-    <h1>Iniciar Sesión - Aficionado</h1>
-</header>
+<body>
+    <header>
+        <h1>Iniciar Sesión - Aficionado</h1>
+    </header>
     <main>
+        <?php if (!empty($_SESSION['login_error']) && is_array($_SESSION['login_error'])) { ?>
+            <div class="error-container">
+                <span class="error-icon">ⓘ</span>
+                <span>
+                    <?php
+                    foreach ($_SESSION['login_error'] as $error) {
+                        echo htmlspecialchars($error) . "<br>";
+                    }
+                    ?>
+                </span>
+            </div>
+            <?php unset($_SESSION['login_error']); ?>
+        <?php } ?>
         <form action="../Controller/UserController.php" method="post">
             <label>Email
                 <input type="email" name="email" required>
             </label>
 
             <label>Contraseña
-                <input type="password" name="password"  required minlength="6">
+                <input type="password" name="password" required minlength="6">
             </label>
 
-    <button type="submit" value="login" name="login">Iniciar Sesión como aficionado</button>
-    
+            <label>Tipo de usuario
+                <select name="userType" value="userType" required>
+                    <option value="Aficionado">Aficionado</option>
+                    <option value="Promotor">Promotor</option>
+                </select>
+            </label>
+
+            <input type="submit" name="login" value="Iniciar Sesión">
+
             <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem;">
                 ¿No tienes cuenta? <a href="role-selection.php" style="color: red; text-decoration: none;">Regístrate aquí</a>
             </p>
@@ -33,4 +58,5 @@
         </form>
     </main>
 </body>
+
 </html>
