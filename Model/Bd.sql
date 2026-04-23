@@ -61,6 +61,7 @@ CREATE PROCEDURE sp_login(
     OUT valido boolean
 )
 BEGIN
+
 	SELECT EXISTS(
 		SELECT *
         FROM aficionado
