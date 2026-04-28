@@ -437,15 +437,20 @@ button {
     flex-wrap: wrap;
     gap: 1rem;
     margin-top: 2.2rem;
+     margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.12);
 }
 
 .btn-action,
 .btn-secondary {
-    display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 180px;
-    padding: 1rem 1.5rem;
     border-radius: 10px;
     text-decoration: none;
     transition: all 0.3s ease;
