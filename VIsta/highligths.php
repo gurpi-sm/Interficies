@@ -149,60 +149,60 @@
             </div>
         </section>
         <section class="video-gallery">
-            <h2 class="section-title">Mejores Momentos - Basket</h2>
+            <h2 class="section-title">Mejores Momentos - Tennis</h2>
             
             <div class="video-grid">
                     <div class="video-item">
                         <div class="video-container">
-                            <video controls poster="assets/images/maxresdefault (3).jpg">
-                            <source src="assets/videos/videoplayback (5).mp4" type="video/mp4">
+                            <video controls poster="assets/images/tennis.jpg">
+                            <source src="assets/videos/videoplayback (11).mp4" type="video/mp4">
                             Tu navegador no soporta el formato de video.
                             </video>
                         </div>
                         <div class="video-info">
-                            <h3>MEJORES JUGADAS DE LEBRON JAMES</h3>
-                            <p>Aquí podemos ver una recopilación de las mejores jugadas del mismísimo Lebron James, tanto anotaciones propias como asistencias o incluso rebotes épicos.</p>
+                            <h3>MEJORES TIROS EN TENNIS</h3>
+                            <p>Aquí podemos ver las mejores jugadas de tiros en tenis, desde saques potentes hasta devoluciones imposibles.</p>
                         </div>
                     </div>
                     <div class="video-item">
                         <div class="video-container">
-                            <video controls poster="assets/images/maxresdefault (4).jpg">
-                            <source src="assets/videos/videoplayback (6).mp4" type="video/mp4">
+                            <video controls poster="assets/images/enfadosTenis.webp">
+                            <source src="assets/videos/videoplayback (12).mp4" type="video/mp4">
                             Tu navegador no soporta el formato de video.
                             </video>
                         </div>
                         <div class="video-info">
-                            <h3>MEJORES JUGADAS DE LA NBA</h3>
-                            <p>Aquí presentamos las jugadas más impresionantes de la NBA, estas jugadas te dejarán loco.</p>
+                            <h3>MAYORES ENFADOS EN EL TENNIS</h3>
+                            <p>Aquí presentamos los momentos más intensos del tenis, donde los jugadores se enfrentan con toda su pasión y determinación,  esto provoca estos enfados tan exagerados.</p>
                         </div>
                     </div>
                 <div class="video-item">
                     <div class="video-container">
-                        <video controls poster="assets/images/maxresdefault (5).jpg">
-                        <source src="assets/videos/videoplayback (7).mp4" type="video/mp4">
+                        <video controls poster="assets/images/funnytenis.jpg">
+                        <source src="assets/videos/videoplayback (13).mp4" type="video/mp4">
                         Tu navegador no soporta el formato de <video src="" class=""></video>
                     </div>
                     <div class="video-info">
-                        <h3>LOS MOMENTOS MÁS GRACIOSOS DE LA NBA</h3>
-                        <p>Estos momentos en la NBA te dejaran llorando de la risa, desde caídas graciosas hasta jugadas sin sentido, todo lo que necesitas para reírte un rato con este deporte.</p>
+                        <h3>LOS MOMENTOS MÁS GRACIOSOS EN EL TENNIS</h3>
+                        <p>Estos momentos en el tenis te dejaran llorando de la risa, desde caídas graciosas hasta jugadas sin sentido, todo lo que necesitas para reírte un rato con este deporte.</p>
                     </div>
                 </div>
             </div>
         </section>
         <section class="video-gallery">
-            <h2 class="section-title">Mejores Momentos - Basket</h2>
+            <h2 class="section-title">Mejores Momentos - MMA</h2>
             
             <div class="video-grid">
                     <div class="video-item">
                         <div class="video-container">
-                            <video controls poster="assets/images/maxresdefault (3).jpg">
-                            <source src="assets/videos/videoplayback (5).mp4" type="video/mp4">
+                            <video controls poster="assets/images/ufc2.jpg">
+                            <source src="assets/videos/videoplayback (14).mp4" type="video/mp4">
                             Tu navegador no soporta el formato de video.
                             </video>
                         </div>
                         <div class="video-info">
-                            <h3>MEJORES JUGADAS DE LEBRON JAMES</h3>
-                            <p>Aquí podemos ver una recopilación de las mejores jugadas del mismísimo Lebron James, tanto anotaciones propias como asistencias o incluso rebotes épicos.</p>
+                        <h3>TOP 105 KNOCKOUTS EN MMA</h3>
+                            <p>Aquí podemos ver una recopilación de los mejores knockouts en MMA, desde combates intensos hasta victorias memorables.</p>
                         </div>
                     </div>
                     <div class="video-item">
