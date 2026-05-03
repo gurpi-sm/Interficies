@@ -16,6 +16,11 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Next Level Sports</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
+    <!-- jQuery Utilities CSS -->
+    <link rel="stylesheet" href="css/jquery-utilities.css">
 </head>
 
 <body>
@@ -66,8 +71,212 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
                 <a href="index.php" style="color: gray; text-decoration: none; font-size: 0.8rem;">← Volver al Inicio</a>
             </p>
         </form>
+
+        <!-- Botón de demostración de modal -->
+        <div style="text-align: center; margin-top: 2rem;">
+            <button id="demo-modal-btn" style="padding: 0.8rem 1.5rem; background: #333; color: red; border: 2px solid red; border-radius: 6px; cursor: pointer; font-weight: bold;">
+                Ver Ejemplo de Modal
+            </button>
+        </div>
+
+        <!-- SLIDER 1: Eventos/Conciertos -->
+        <section style="margin-top: 3rem;">
+            <h3 style="text-align: center; color: red; margin-bottom: 2rem;">Eventos Próximos</h3>
+            <div class="slider-events">
+                <div class="slider-item">
+                    <img src="assets/images/champions-league-stadium.avif" alt="Champions League">
+                    <div class="slider-item-title">Champions League</div>
+                    <div class="slider-item-desc">Competencia internacional de fútbol</div>
+                </div>
+                <div class="slider-item">
+                    <img src="assets/images/f1-spanish-grand-prix.avif" alt="F1 Spanish GP">
+                    <div class="slider-item-title">F1 Spanish Grand Prix</div>
+                    <div class="slider-item-desc">Gran premio de Fórmula 1</div>
+                </div>
+                <div class="slider-item">
+                    <img src="assets/images/motogp-grand-prix.avif" alt="MotoGP">
+                    <div class="slider-item-title">MotoGP Grand Prix</div>
+                    <div class="slider-item-desc">Campeonato mundial de motociclismo</div>
+                </div>
+                <div class="slider-item">
+                    <img src="assets/images/champions-league-stadium.avif" alt="Event 4">
+                    <div class="slider-item-title">Torneo de Tenis</div>
+                    <div class="slider-item-desc">Campeonato internacional de tenis</div>
+                </div>
+                <div class="slider-item">
+                    <img src="assets/images/f1-spanish-grand-prix.avif" alt="Event 5">
+                    <div class="slider-item-title">Maratón de Ciclismo</div>
+                    <div class="slider-item-desc">Competencia de resistencia</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDER 2: Promotores -->
+        <section style="margin-top: 3rem; margin-bottom: 3rem;">
+            <h3 style="text-align: center; color: red; margin-bottom: 2rem;">Promotores Destacados</h3>
+            <div class="slider-promoters">
+                <div class="slider-item">
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #cc0000, #660000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        Promotor 1
+                    </div>
+                    <div class="slider-item-title">Juan García</div>
+                    <div class="slider-item-desc">Organizador de eventos deportivos con 10 años de experiencia</div>
+                </div>
+                <div class="slider-item">
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #660000, #330000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        Promotor 2
+                    </div>
+                    <div class="slider-item-title">María López</div>
+                    <div class="slider-item-desc">Especialista en eventos de música y entretenimiento</div>
+                </div>
+                <div class="slider-item">
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #990000, #330000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        Promotor 3
+                    </div>
+                    <div class="slider-item-title">Carlos Rodríguez</div>
+                    <div class="slider-item-desc">Productor de eventos internacionales de alto nivel</div>
+                </div>
+                <div class="slider-item">
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #cc0000, #330000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        Promotor 4
+                    </div>
+                    <div class="slider-item-title">Ana Martínez</div>
+                    <div class="slider-item-desc">Coordinadora de eventos culturales y deportivos</div>
+                </div>
+                <div class="slider-item">
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #660000, #000000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        Promotor 5
+                    </div>
+                    <div class="slider-item-title">Pedro Silva</div>
+                    <div class="slider-item-desc">Gestor de grandes competiciones deportivas</div>
+                </div>
+            </div>
+        </section>
         <?php } ?>
     </main>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick Carousel JS -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- jQuery Utilities JS -->
+    <script src="js/jquery-utilities.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Inicializar aviso de cookies
+            initCookiesAlert();
+
+            // Inicializar sliders con configuración responsiva
+            initSlider('.slider-events', {
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ],
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                infinite: true,
+                speed: 500,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                dots: true,
+                arrows: true
+            });
+
+            initSlider('.slider-promoters', {
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                        }
+                    }
+                ],
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                speed: 500,
+                autoplay: true,
+                autoplaySpeed: 6000,
+                dots: true,
+                arrows: true
+            });
+
+            // Añadir mensaje de hover a las imágenes del slider de eventos
+            addImageHoverMessage('.slider-events .slider-item img', 'Haz clic para más información');
+
+            // Demo de modal
+            $('#demo-modal-btn').click(function() {
+                openModal(
+                    'Bienvenido a Next Level Sports',
+                    'Esta es una demostración de un modal con jQuery. Puedes hacer clic en el fondo o en la X para cerrarlo.',
+                    [
+                        {
+                            text: 'Cerrar',
+                            class: 'modal-btn-primary',
+                            action: 'close',
+                            callback: closeModal
+                        }
+                    ]
+                );
+            });
+
+            // Prevenir envío de formulario si cookies no están aceptadas
+            $('form').submit(function(e) {
+                const STORAGE_KEY = 'cookies_accepted';
+                if (!localStorage.getItem(STORAGE_KEY)) {
+                    e.preventDefault();
+                    openModal(
+                        'Cookies Requeridas',
+                        'Debes aceptar el uso de cookies para continuar. Por favor, acepta las cookies en la parte inferior de la página.',
+                        [
+                            {
+                                text: 'Entendido',
+                                class: 'modal-btn-primary',
+                                action: 'ok',
+                                callback: closeModal
+                            }
+                        ]
+                    );
+                    return false;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
