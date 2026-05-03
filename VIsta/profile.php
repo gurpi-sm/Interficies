@@ -162,6 +162,7 @@ if ($userInfo && strtolower(trim($userInfo['tipo'])) === 'promotor' && !empty($u
     <nav>
         <a href="index.php">Inicio</a>
         <a href="profile.php">Mi Perfil</a>
+        <a href="promotores-recurrentes.php">Promotores Recurrentes</a>
     </nav>
 
     <main>
