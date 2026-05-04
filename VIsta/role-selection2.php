@@ -92,7 +92,6 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
     <nav><a href="index.php">Inicio</a><a href="profile.php">Mi Perfil</a></nav>
     <main>
         <?php 
-
         if (isset($_SESSION['user']) && !empty($_SESSION['user'])) { 
         ?>
         <h2 class="main-title">Ya estás conectado</h2>
@@ -103,7 +102,6 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
             </form>
         </div>
         <?php } else { ?>
-        <h2 class="main-title">Clica aquí abajo para iniciar sesión</h2>
         <div class="seleccion-container">
             <article class="card" onclick="window.location.href='fan-login.php'">
                 <h3>INICIAR SESIÓN</h3>
@@ -114,8 +112,6 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
         <?php } ?>
         <div class="footer-link">
             <a href="role-selection.php">No tengo cuenta, volver al registro</a>
-            <br><br>
-            <a href="?reset=1" style="color: #999; text-decoration: none; font-size: 0.9rem;">Reset Session</a>
         </div>
     </main>
 </body>
