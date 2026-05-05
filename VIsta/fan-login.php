@@ -20,7 +20,7 @@ if (isset($_GET['reset']) && $_GET['reset'] === '1') {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
     <!-- jQuery Utilities CSS -->
-    <link rel="stylesheet" href="css/jquery-utilities.css">
+    <link rel="stylesheet" href="css/jquery-utilities2.css">
 </head>
 
 <body>

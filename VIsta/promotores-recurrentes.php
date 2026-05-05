@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Next Level Sports | Highlights</title>
-    <link rel="stylesheet" href="css/gallery.css">
-    <!-- Slick Carousel CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css">
-    <!-- jQuery Utilities CSS -->
-    <link rel="stylesheet" href="css/jquery-utilities.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css">
+
+<link rel="stylesheet" href="css/jquery-utilities.css">
+<link rel="stylesheet" href="css/gallery.css">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
     <nav class="main-nav">
@@ -21,16 +19,10 @@
     <ul class="nav-links">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="news.php">Noticias</a></li>
-        <li><a href="/Vista/events/champions-league-event.php">Eventos</a></li>
+        <li><a href="../Vista/events/general-events.php">Eventos</a></li>
     </ul>
 </nav>
-    <header style="background-color: #000; padding: 30px; text-align: center; border-bottom: 2px solid red;">
-        <h1 style="color: white; text-transform: uppercase; letter-spacing: 3px; margin: 0;">
-            Next Level <span style="color: red;">Sports</span>
-        </h1>
-    </header>
 <section style="margin-top: 3rem; margin-bottom: 3rem;">
-            <h3 style="text-align: center; color: white; margin-bottom: 2rem;">Promotores Destacados</h3>
             <div class="slider-promoters">
                 <div class="slider-item">
                     <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #cc0000, #660000); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
@@ -69,7 +61,7 @@
                 </div>
             </div>
 </section>
-<footer class="site-footer">
+<footer class="site-footer" style="margin-top: 10rem;">
     <div class="footer-links">
         <h3>Información útil</h3>
         <ul>

@@ -1,4 +1,5 @@
 /* ===== MODAL STYLES ===== */
+
 .modal-overlay {
     display: none;
     position: fixed;
@@ -59,18 +60,21 @@
     font-size: 1.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
+
 }
 
 .modal-body {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+
 }
 
 .modal-actions {
     display: flex;
     gap: 1rem;
     justify-content: center;
+
 }
 
 .modal-btn {
@@ -82,40 +86,48 @@
     text-transform: uppercase;
     transition: all 0.3s ease;
     flex: 1;
+
 }
 
 .modal-btn-primary {
     background: red;
     color: black;
+
 }
 
 .modal-btn-primary:hover {
     background: #cc0000;
     transform: scale(1.05);
+
 }
 
 .modal-btn-secondary {
     background: #333;
     color: white;
     border: 2px solid red;
+
 }
 
 .modal-btn-secondary:hover {
     background: #555;
+
 }
 
 /* ===== IMAGE HOVER MESSAGE STYLES ===== */
+
 .image-container {
     position: relative;
     display: inline-block;
     overflow: hidden;
     border-radius: 8px;
+
 }
 
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
+
 }
 
 .image-tooltip {
@@ -130,13 +142,16 @@
     font-weight: bold;
     transition: bottom 0.3s ease;
     z-index: 10;
+
 }
 
 .image-container:hover .image-tooltip {
     bottom: 0;
+
 }
 
 /* ===== COOKIES ALERT STYLES ===== */
+
 .cookies-alert {
     position: fixed;
     bottom: 0;
@@ -149,6 +164,7 @@
     z-index: 998;
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
     animation: slideUp 0.4s ease-out;
+
 }
 
 .cookies-alert.show {
@@ -156,6 +172,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
+
 }
 
 .cookies-text {
@@ -163,10 +180,12 @@
     color: white;
     font-size: 0.95rem;
     line-height: 1.5;
+
 }
 
 .cookies-text strong {
     color: red;
+
 }
 
 .cookies-buttons {
@@ -174,220 +193,494 @@
     gap: 1rem;
     flex-wrap: wrap;
     min-width: 300px;
+
 }
+
 
 .cookies-btn {
+
     flex: 1;
+
     min-width: 120px;
+
     padding: 0.8rem 1.5rem;
+
     border: none;
+
     border-radius: 6px;
+
     cursor: pointer;
+
     font-weight: bold;
+
     text-transform: uppercase;
+
     transition: all 0.3s ease;
+
     font-size: 0.9rem;
+
 }
+
+
 
 .cookies-btn-accept {
+
     background: red;
+
     color: black;
+
 }
+
+
 
 .cookies-btn-accept:hover {
+
     background: #cc0000;
+
     transform: scale(1.05);
+
 }
+
+
 
 .cookies-btn-reject {
+
     background: #333;
+
     color: white;
+
     border: 2px solid red;
+
 }
+
+
 
 .cookies-btn-reject:hover {
+
     background: #555;
+
 }
+
+
 
 #show-cookies-btn {
+
     display: none;
+
     margin: 1rem 0;
+
     padding: 0.8rem 1.5rem;
+
     background: #333;
+
     color: red;
+
     border: 2px solid red;
+
     border-radius: 6px;
+
     cursor: pointer;
+
     font-weight: bold;
+
     text-transform: uppercase;
+
     transition: all 0.3s ease;
+
 }
+
+
 
 #show-cookies-btn:hover {
+
     background: #555;
+
 }
+
+
 
 /* ===== SLICK CAROUSEL STYLES ===== */
-/* 1. CONTENEDOR GENERAL (El marco del carrusel) */
-.slider-promoters {
+
+.slick-slider {
+
+    margin: 2rem 0;
+
     position: relative;
-    padding: 0 50px; /* Espacio para las flechas laterales */
-    margin: 20px auto;
+
 }
 
-/* 2. AREA DE TEXTO Y PUNTOS (Background Negro) */
-/* Añadimos este estilo para crear el recuadro negro abajo */
-.slider-item-title, 
-.slider-item-desc {
-    background-color: #000 !important; /* Fondo negro */
-    color: #fff !important;
-    margin: 0 !important; /* Quita espacios blancos entre bloques */
-    padding: 10px 15px !important;
+
+
+.slick-slide {
+
+    display: none;
+
+    padding: 0 10px;
+
 }
 
-/* 3. RECUADRITO NEGRO PARA LOS PUNTOS */
-.slider-promoters .slick-dots {
-    background-color: #000 !important; /* Fondo negro para los puntos */
-    margin: 0 !important;
-    padding: 15px 0 !important; /* Espacio interno para que respire */
-    display: flex !important;
-    justify-content: center !important;
-    list-style: none !important;
-    position: relative;
-    bottom: 0;
-    border-bottom-left-radius: 8px; /* Redondeado si tus tarjetas lo tienen */
-    border-bottom-right-radius: 8px;
+
+
+.slick-slide.slick-active {
+
+    display: block;
+
 }
 
-/* 4. AJUSTE DE FLECHAS (Para que no se muevan de su sitio) */
-.slider-promoters .slick-prev, 
-.slider-promoters .slick-next {
+
+
+.slick-prev, .slick-next {
+
     position: absolute;
-    top: 50% !important; /* Centrado vertical respecto a la imagen */
-    transform: translateY(-50%) !important;
-    z-index: 100 !important;
-    width: 40px !important;
-    height: 40px !important;
-    background-color: red !important;
-    border-radius: 50% !important;
-    border: none !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: white !important;
-    text-indent: 0 !important;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: red;
+
+    color: white;
+
+    border: none;
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+
+    z-index: 10;
+
 }
 
-.slider-promoters .slick-prev { left: 0px !important; }
-.slider-promoters .slick-next { right: 0px !important; }
 
-/* 5. ESTILO DE LOS PUNTOS (Dots) */
-.slider-promoters .slick-dots li button {
-    font-size: 0 !important;
-    width: 10px !important;
-    height: 10px !important;
-    background-color: #444 !important; /* Gris oscuro sobre el fondo negro */
-    border-radius: 50% !important;
-    border: none !important;
-    cursor: pointer !important;
+
+.slick-prev {
+
+    left: 10px;
+
 }
 
-.slider-promoters .slick-dots li.slick-active button {
-    background-color: red !important; /* Punto rojo activo */
+
+
+.slick-next {
+
+    right: 10px;
+
 }
+
+
+
+.slick-prev:hover, .slick-next:hover {
+
+    background: #cc0000;
+
+    transform: translateY(-50%) scale(1.1);
+
+}
+
+
+
+.slick-dots {
+
+    text-align: center;
+
+    padding: 1rem 0;
+
+}
+
+
+
+.slick-dots li {
+
+    display: inline-block;
+
+    width: 12px;
+
+    height: 12px;
+
+    margin: 0 5px;
+
+    background: #555;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.slick-dots li.slick-active {
+
+    background: red;
+
+    transform: scale(1.3);
+
+}
+
+
+
+.slider-item {
+
+    background: #1a1a1a;
+
+    border: 2px solid red;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    transition: all 0.3s ease;
+
+}
+
+
+
+.slider-item:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
+
+}
+
+
+
+.slider-item img {
+
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+}
+
+
+
+.slider-item-title {
+
+    padding: 1rem;
+
+    color: red;
+
+    font-weight: bold;
+
+    font-size: 1.2rem;
+
+}
+
+
+
+.slider-item-desc {
+
+    padding: 0 1rem 1rem;
+
+    color: white;
+
+    font-size: 0.9rem;
+
+}
+
+
 
 /* ===== ANIMATIONS ===== */
+
 @keyframes fadeIn {
+
     from {
+
         opacity: 0;
+
     }
+
     to {
+
         opacity: 1;
+
     }
+
 }
+
+
 
 @keyframes slideDown {
+
     from {
+
         opacity: 0;
+
         transform: translateY(-50px);
+
     }
+
     to {
+
         opacity: 1;
+
         transform: translateY(0);
+
     }
+
 }
+
+
 
 @keyframes slideUp {
+
     from {
+
         opacity: 0;
+
         transform: translateY(50px);
+
     }
+
     to {
+
         opacity: 1;
+
         transform: translateY(0);
+
     }
+
 }
+
+
 
 /* ===== RESPONSIVE DESIGN ===== */
+
 @media (max-width: 768px) {
+
     .cookies-alert.show {
+
         flex-direction: column;
+
         gap: 1rem;
+
     }
+
+
 
     .cookies-buttons {
+
         width: 100%;
+
         min-width: unset;
+
     }
+
+
 
     .cookies-btn {
+
         width: 100%;
+
     }
+
+
 
     .modal-content {
+
         max-width: 90%;
+
         padding: 1.5rem;
+
     }
 
+
+
     .slick-prev, .slick-next {
+
         width: 40px;
+
         height: 40px;
+
         font-size: 18px;
+
     }
+
+
 
     .slick-prev {
+
         left: 5px;
+
     }
+
+
 
     .slick-next {
+
         right: 5px;
+
     }
 
+
+
     .slider-item img {
+
         height: 250px;
+
     }
+
 }
 
+
+
 @media (max-width: 480px) {
+
     .modal-content {
+
         padding: 1.2rem;
+
     }
+
+
 
     .modal-title {
+
         font-size: 1.2rem;
+
     }
 
+
+
     .slick-prev, .slick-next {
+
         width: 35px;
+
         height: 35px;
+
         font-size: 16px;
+
     }
 
     .slider-item img {
+
         height: 200px;
+
     }
 
+
+
     .slider-item-title {
+
         font-size: 1rem;
+
     }
+
 }

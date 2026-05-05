@@ -14,7 +14,7 @@
     <ul class="nav-links">
         <li><a href="index.php">Inicio</a></li>
         <li><a href="news.php">Noticias</a></li>
-        <li><a href="/Vista/events/champions-league-event.php">Eventos</a></li>
+        <li><a href="../Vista/events/general-events.php">Eventos</a></li>
     </ul>
 </nav>
     <header style="background-color: #000; padding: 30px; text-align: center; border-bottom: 2px solid red;">
