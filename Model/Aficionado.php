@@ -38,7 +38,7 @@ public function __construct($FanName, $FanEmail, $FanPwd, $FanPwdCon, $FanSport)
              echo "<span>hola.</span>";
             $insert = $conn->query("INSERT INTO aficionado (Name, Email, Pwd, PwdCon, Sport )
                 VALUES ('$this->FanName', '$this->FanEmail', '$this->FanPwd','$this->FanPwdCon', '$this->FanSport')");
-            header('Location: ../Vista/index.html');
+            header('Location: ../Vista/index.php');
             exit();
         }
  

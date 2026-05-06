@@ -39,7 +39,7 @@ public function __construct($ProName, $ProPwd, $ProPwdCon, $ProEmail, $ProDirect
         if ($this->ProPwd === $ProPwdCon && $exist === 0) {
             $insert = $conn->query("INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
                 VALUES ('$this->ProName', '$this->ProPwd', '$this->ProEmail', '$this->ProDirection', '$this->ProCreditCard')");
-            header('Location: ../Vista/index.html');
+            header('Location: ../Vista/index.php');
             exit();
         }
  
