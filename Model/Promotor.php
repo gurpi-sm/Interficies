@@ -22,7 +22,7 @@ class Promotor {
         try {
             // 1. Verificar si el email existe mediante el Procedimiento Almacenado
             // Usamos prepare para evitar inyecciones en el parámetro del procedimiento
-            $stmt = $conn->prepare("CALL sp_comprovar_email(:email, @result)");
+            $stmt = $conn->prepare("CALL sp_comprovar_emailp(:email, @result)");
             $stmt->execute([':email' => $this->ProEmail]);
             
             // Recuperamos el valor de la variable @result definida en MySQL
@@ -64,27 +64,6 @@ class Promotor {
         } finally {
             // En PDO, poner el statement a null es equivalente a cerrarlo
             $stmt = null;
-        
-        $conn->query("CALL sp_comprovar_emailp('$this->ProEmail', @result)");
-        $result = $conn->query("SELECT @result AS exist");
-        $row = $result->fetch_assoc();
-        $exist = intval($row["exist"]);
- 
-        if ($exist === 1) {
-            echo "<span>El correo electrónico ya está registrado. Inténtelo con otro.</span>";
-            return;
-        }
- 
-        if ($this->ProPwd !== $ProPwdCon) {
-            echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
-            return;
-        }
- 
-        if ($this->ProPwd === $ProPwdCon && $exist === 0) {
-            $insert = $conn->query("INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
-                VALUES ('$this->ProName', '$this->ProPwd', '$this->ProEmail', '$this->ProDirection', '$this->ProCreditCard')");
-            header('Location: ../Vista/index.php');
-            exit();
         }
     }
 }
