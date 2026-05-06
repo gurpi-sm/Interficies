@@ -227,43 +227,41 @@
     background: #555;
 }
 
-/* ===== SLICK CAROUSEL STYLES ===== */
-/* 1. CONTENEDOR GENERAL (El marco del carrusel) */
+
 .slider-promoters {
     position: relative;
-    padding: 0 50px; /* Espacio para las flechas laterales */
+    padding: 0 50px; 
     margin: 20px auto;
 }
 
-/* 2. AREA DE TEXTO Y PUNTOS (Background Negro) */
-/* Añadimos este estilo para crear el recuadro negro abajo */
+
 .slider-item-title, 
 .slider-item-desc {
-    background-color: #000 !important; /* Fondo negro */
+    background-color: #000 !important; 
     color: #fff !important;
-    margin: 0 !important; /* Quita espacios blancos entre bloques */
+    margin: 0 !important; 
     padding: 10px 15px !important;
 }
 
-/* 3. RECUADRITO NEGRO PARA LOS PUNTOS */
+
 .slider-promoters .slick-dots {
-    background-color: #000 !important; /* Fondo negro para los puntos */
+    background-color: #000 !important; 
     margin: 0 !important;
-    padding: 15px 0 !important; /* Espacio interno para que respire */
+    padding: 15px 0 !important; 
     display: flex !important;
     justify-content: center !important;
     list-style: none !important;
     position: relative;
     bottom: 0;
-    border-bottom-left-radius: 8px; /* Redondeado si tus tarjetas lo tienen */
+    border-bottom-left-radius: 8px; 
     border-bottom-right-radius: 8px;
 }
 
-/* 4. AJUSTE DE FLECHAS (Para que no se muevan de su sitio) */
+
 .slider-promoters .slick-prev, 
 .slider-promoters .slick-next {
     position: absolute;
-    top: 50% !important; /* Centrado vertical respecto a la imagen */
+    top: 50% !important; 
     transform: translateY(-50%) !important;
     z-index: 100 !important;
     width: 40px !important;
@@ -281,22 +279,22 @@
 .slider-promoters .slick-prev { left: 0px !important; }
 .slider-promoters .slick-next { right: 0px !important; }
 
-/* 5. ESTILO DE LOS PUNTOS (Dots) */
+
 .slider-promoters .slick-dots li button {
     font-size: 0 !important;
     width: 10px !important;
     height: 10px !important;
-    background-color: #444 !important; /* Gris oscuro sobre el fondo negro */
+    background-color: #444 !important; 
     border-radius: 50% !important;
     border: none !important;
     cursor: pointer !important;
 }
 
 .slider-promoters .slick-dots li.slick-active button {
-    background-color: red !important; /* Punto rojo activo */
+    background-color: red !important; 
 }
 
-/* ===== ANIMATIONS ===== */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -328,7 +326,7 @@
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+
 @media (max-width: 768px) {
     .cookies-alert.show {
         flex-direction: column;

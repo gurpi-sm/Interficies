@@ -38,7 +38,7 @@ class Aficionado {
                 return;
             }
 
-            // 3. Insertar nuevo registro
+            
             if ($this->FanPwd === $FanPwdCon && $exist === 0) {
                 $sql = "INSERT INTO aficionado (Name, Email, Pwd, PwdCon, Sport) 
                         VALUES (:name, :email, :pwd, :pwdcon, :sport)";
@@ -57,7 +57,7 @@ class Aficionado {
             }
 
         } catch (PDOException $e) {
-            // Manejo de errores de base de datos
+            
             echo "<span>Error en el registro: " . $e->getMessage() . "</span>";
         } finally {
             

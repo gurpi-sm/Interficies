@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-// controller/UserController.php
+
 require_once '../Model/NextLvlBase.php';
 require_once '../Model/Aficionado.php';
 require_once '../Model/Promotor.php';
@@ -31,7 +31,7 @@ class UserController
         if (!empty($_POST['FanName']) && !empty($_POST['FanEmail']) && !empty($_POST['FanPwd']) && !empty($_POST['FanPwdCon']) && !empty($_POST['FanSport'])) {
             $aficionado = new Aficionado($_POST['FanName'], $_POST['FanEmail'], $_POST['FanPwd'], $_POST['FanPwdCon'], $_POST['FanSport']);
             $conn = $this->db->getConnection();
-            // Asegúrate de que el método register de tu modelo Aficionado acepte PDO
+           
             $aficionado->register($_POST['FanPwdCon'], $conn);
         }
         exit();
@@ -59,7 +59,7 @@ class UserController
             try {
                 $procedure = ($userType === 'Promotor') ? 'sp_loginp' : 'sp_login';
                 
-                // En PDO, para obtener el OUT parameter @result, ejecutamos el CALL y luego el SELECT
+                
                 $stmt = $conn->prepare("CALL $procedure(:email, :pass, @result)");
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':pass', $password);
@@ -149,7 +149,7 @@ class UserController
 
     public function logout()
     {
-        // No hace falta session_start() aquí si ya está al inicio del archivo
+        
         unset($_SESSION['user'], $_SESSION['user_type'], $_SESSION['user_info']);
         session_destroy();
         header("Location: ../Vista/index.php");

@@ -20,12 +20,11 @@ class Promotor {
     public function registerp($ProPwdCon, $conn)
     {
         try {
-            // 1. Verificar si el email existe mediante el Procedimiento Almacenado
-            // Usamos prepare para evitar inyecciones en el parámetro del procedimiento
+            
             $stmt = $conn->prepare("CALL sp_comprovar_emailp(:email, @result)");
             $stmt->execute([':email' => $this->ProEmail]);
             
-            // Recuperamos el valor de la variable @result definida en MySQL
+            
             $res = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
             $exist = intval($res["exist"]);
 
@@ -34,13 +33,13 @@ class Promotor {
                 return;
             }
 
-            // 2. Validar que las contraseñas coincidan
+            
             if ($this->ProPwd !== $ProPwdCon) {
                 echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
                 return;
             }
 
-            // 3. Si todo es correcto, insertar en la tabla promotor
+            
             if ($this->ProPwd === $ProPwdCon && $exist === 0) {
                 $sql = "INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
                         VALUES (:name, :pwd, :email, :direction, :creditcard)";
@@ -59,10 +58,10 @@ class Promotor {
             }
 
         } catch (PDOException $e) {
-            // Capturamos cualquier error de la base de datos
+            
             echo "<span>Error en el registro del promotor: " . $e->getMessage() . "</span>";
         } finally {
-            // En PDO, poner el statement a null es equivalente a cerrarlo
+            
             $stmt = null;
         }
     }

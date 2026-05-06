@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/info/auth.php';
 
 $user = current_user();
 $userType = current_user_type();
