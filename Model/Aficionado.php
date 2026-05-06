@@ -19,11 +19,11 @@ class Aficionado {
     public function register($FanPwdCon, $conn)
     {
         try {
-            // 1. Comprobar si el email existe usando el Procedimiento Almacenado
+            
             $stmt = $conn->prepare("CALL sp_comprovar_email(:email, @result)");
             $stmt->execute([':email' => $this->FanEmail]);
             
-            // En PDO, para obtener el parámetro de salida @result:
+            
             $res = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
             $exist = intval($res["exist"]);
 
@@ -32,7 +32,7 @@ class Aficionado {
                 return;
             }
 
-            // 2. Validar contraseñas
+            
             if ($this->FanPwd !== $FanPwdCon) {
                 echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
                 return;
@@ -60,8 +60,7 @@ class Aficionado {
             // Manejo de errores de base de datos
             echo "<span>Error en el registro: " . $e->getMessage() . "</span>";
         } finally {
-            // En PDO no es estrictamente necesario cerrar la conexión o el result manualmente 
-            // como en MySQLi, basta con poner la variable a null si fuera necesario.
+            
             $stmt = null;
         }
     }
