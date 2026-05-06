@@ -364,16 +364,14 @@
 
 
 .slick-prev {
-
-    left: 10px;
+    left: 0px !important
 
 }
 
 
 
 .slick-next {
-
-    right: 10px;
+    right: 0px !important;
 
 }
 

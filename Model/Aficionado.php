@@ -63,6 +63,28 @@ class Aficionado {
             // En PDO no es estrictamente necesario cerrar la conexión o el result manualmente 
             // como en MySQLi, basta con poner la variable a null si fuera necesario.
             $stmt = null;
+        
+        $conn->query("CALL sp_comprovar_email('$this->FanEmail', @result)");
+        $result = $conn->query("SELECT @result AS exist");
+        $row = $result->fetch_assoc();
+        $exist = intval($row["exist"]);
+ 
+        if ($exist === 1) {
+            echo "<span>El correo electrónico ya está registrado. Inténtelo con otro.</span>";
+            return;
+        }
+ 
+        if ($this->FanPwd !== $FanPwdCon) {
+            echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
+            return;
+        }
+ 
+        if ($this->FanPwd === $FanPwdCon && $exist === 0) {
+             echo "<span>hola.</span>";
+            $insert = $conn->query("INSERT INTO aficionado (Name, Email, Pwd, PwdCon, Sport )
+                VALUES ('$this->FanName', '$this->FanEmail', '$this->FanPwd','$this->FanPwdCon', '$this->FanSport')");
+            header('Location: ../Vista/index.php');
+            exit();
         }
     }
 }
