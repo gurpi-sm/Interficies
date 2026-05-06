@@ -1,4 +1,3 @@
-
 <?php
 class Aficionado {
     private $FanName;
