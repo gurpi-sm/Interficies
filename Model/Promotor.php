@@ -7,8 +7,7 @@ class Promotor {
     private $ProDirection;
     private $ProCreditCard;
 
-
-public function __construct($ProName, $ProPwd, $ProPwdCon, $ProEmail, $ProDirection, $ProCreditCard)
+    public function __construct($ProName, $ProPwd, $ProPwdCon, $ProEmail, $ProDirection, $ProCreditCard)
     {
         $this->ProName = $ProName;
         $this->ProPwd = $ProPwd;
@@ -20,31 +19,37 @@ public function __construct($ProName, $ProPwd, $ProPwdCon, $ProEmail, $ProDirect
 
     public function registerp($ProPwdCon, $conn)
     {
-        
-        $conn->query("CALL sp_comprovar_emailp('$this->ProEmail', @result)");
-        $result = $conn->query("SELECT @result AS exist");
-        $row = $result->fetch_assoc();
-        $exist = intval($row["exist"]);
- 
+        $stmt = $conn->prepare("CALL sp_comprovar_emailp(:email, @result)");
+        $stmt->execute([':email' => $this->ProEmail]);
+        $stmt->closeCursor();
+
+        $result = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
+        $exist = intval($result["exist"]);
+
         if ($exist === 1) {
-            echo "<span>El correo electrónico ya está registrado. Inténtelo con otro.</span>";
+            echo "<span>El correo electronico ya esta registrado. Intentelo con otro.</span>";
             return;
         }
- 
+
         if ($this->ProPwd !== $ProPwdCon) {
-            echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
+            echo "<span>Las contrasenas no coinciden. Intentelo de nuevo.</span>";
             return;
         }
- 
-        if ($this->ProPwd === $ProPwdCon && $exist === 0) {
-            $insert = $conn->query("INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
-                VALUES ('$this->ProName', '$this->ProPwd', '$this->ProEmail', '$this->ProDirection', '$this->ProCreditCard')");
-            header('Location: ../Vista/index.php');
-            exit();
-        }
- 
-        $result->close();
-        $conn->close();
+
+        $insert = $conn->prepare(
+            "INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
+             VALUES (:name, :pwd, :email, :direction, :credit_card)"
+        );
+        $insert->execute([
+            ':name' => $this->ProName,
+            ':pwd' => $this->ProPwd,
+            ':email' => $this->ProEmail,
+            ':direction' => $this->ProDirection,
+            ':credit_card' => $this->ProCreditCard,
+        ]);
+
+        header('Location: ../Vista/index.php');
+        exit();
     }
 }
 ?>
