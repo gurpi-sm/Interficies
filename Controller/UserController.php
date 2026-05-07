@@ -150,7 +150,7 @@ class UserController
     public function logout()
     {
         
-        unset($_SESSION['user'], $_SESSION['user_type'], $_SESSION['user_info']);
+        unset($_SESSION);
         session_destroy();
         header("Location: ../Vista/index.php");
         exit();
