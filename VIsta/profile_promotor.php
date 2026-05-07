@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/auth.php';
+require_once __DIR__ . '/info/auth.php';
 
 $user = current_user();
 $userType = current_user_type();
@@ -10,12 +10,18 @@ if (!$userInfo && $user && is_promotor()) {
     require_once __DIR__ . '/../Model/NextLvlBase.php';
     $db = new Database();
     $conn = $db->getConnection();
-    $email = $conn->real_escape_string($user);
 
-    $result = $conn->query("SELECT Name AS nombre, Email AS email, Pwd AS pwd, Pwd AS pwdcon, Direction AS direccion, CreditCard AS tarjeta, 'Promotor' AS tipo FROM promotor WHERE Email = '$email'");
+    
+    $email = $user;
 
-    if ($result && $result->num_rows === 1) {
-        $userInfo = $result->fetch_assoc();
+    
+    $stmt = $conn->prepare("SELECT Name AS nombre, Email AS email, Pwd AS pwd, Pwd AS pwdcon, Direction AS direccion, CreditCard AS tarjeta, 'Promotor' AS tipo FROM promotor WHERE Email = :email");
+    $stmt->execute([':email' => $email]);
+
+    
+    $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($userInfo) {
         $_SESSION['user_info'] = $userInfo;
     }
 }
@@ -65,6 +71,7 @@ if ($userInfo && strtolower(trim($userInfo['tipo'])) === 'promotor' && !empty($u
     <nav>
         <a href="index.php">Inicio</a>
         <a href="profile.php">Mi Perfil</a>
+        <a href = "promotores-recurrentes.php">Promotores Recurrentes</a>
     </nav>
     <main>
         <div class="profile-card">

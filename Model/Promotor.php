@@ -19,37 +19,51 @@ class Promotor {
 
     public function registerp($ProPwdCon, $conn)
     {
-        $stmt = $conn->prepare("CALL sp_comprovar_emailp(:email, @result)");
-        $stmt->execute([':email' => $this->ProEmail]);
-        $stmt->closeCursor();
+        try {
+            
+            $stmt = $conn->prepare("CALL sp_comprovar_emailp(:email, @result)");
+            $stmt->execute([':email' => $this->ProEmail]);
+            
+            
+            $res = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
+            $exist = intval($res["exist"]);
 
-        $result = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
-        $exist = intval($result["exist"]);
+            if ($exist === 1) {
+                echo "<span>El correo electrónico ya está registrado. Inténtelo con otro.</span>";
+                return;
+            }
 
-        if ($exist === 1) {
-            echo "<span>El correo electronico ya esta registrado. Intentelo con otro.</span>";
-            return;
+            
+            if ($this->ProPwd !== $ProPwdCon) {
+                echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
+                return;
+            }
+
+            
+            if ($this->ProPwd === $ProPwdCon && $exist === 0) {
+                $sql = "INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
+                        VALUES (:name, :pwd, :email, :direction, :creditcard)";
+                
+                $insertStmt = $conn->prepare($sql);
+                $insertStmt->execute([
+                    ':name'       => $this->ProName,
+                    ':pwd'        => $this->ProPwd,
+                    ':email'      => $this->ProEmail,
+                    ':direction'  => $this->ProDirection,
+                    ':creditcard' => $this->ProCreditCard
+                ]);
+
+                header('Location: ../Vista/index.php');
+                exit();
+            }
+
+        } catch (PDOException $e) {
+            
+            echo "<span>Error en el registro del promotor: " . $e->getMessage() . "</span>";
+        } finally {
+            
+            $stmt = null;
         }
-
-        if ($this->ProPwd !== $ProPwdCon) {
-            echo "<span>Las contrasenas no coinciden. Intentelo de nuevo.</span>";
-            return;
-        }
-
-        $insert = $conn->prepare(
-            "INSERT INTO promotor (Name, Pwd, Email, Direction, CreditCard)
-             VALUES (:name, :pwd, :email, :direction, :credit_card)"
-        );
-        $insert->execute([
-            ':name' => $this->ProName,
-            ':pwd' => $this->ProPwd,
-            ':email' => $this->ProEmail,
-            ':direction' => $this->ProDirection,
-            ':credit_card' => $this->ProCreditCard,
-        ]);
-
-        header('Location: ../Vista/index.php');
-        exit();
     }
 }
 ?>

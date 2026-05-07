@@ -15,12 +15,19 @@ if (!$userInfo && $user) {
     require_once __DIR__ . '/../Model/NextLvlBase.php';
     $db = new Database();
     $conn = $db->getConnection();
-    $email = $conn->real_escape_string($user);
+
+    
+    $email = $user; 
 
     if (is_aficionado()) {
-        $result = $conn->query("SELECT Name AS nombre, Email AS email, Pwd AS pwd, PwdCon AS pwdcon, Sport AS deporte, 'Aficionado' AS tipo FROM aficionado WHERE Email = '$email'");
-        if ($result && $result->num_rows === 1) {
-            $userInfo = $result->fetch_assoc();
+        
+        $stmt = $conn->prepare("SELECT Name AS nombre, Email AS email, Pwd AS pwd, PwdCon AS pwdcon, Sport AS deporte, 'Aficionado' AS tipo FROM aficionado WHERE Email = :email");
+        $stmt->execute([':email' => $email]);
+        
+       
+        $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($userInfo) {
             $_SESSION['user_info'] = $userInfo;
         }
     }

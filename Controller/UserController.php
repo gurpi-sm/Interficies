@@ -30,7 +30,7 @@ class UserController
         if (!empty($_POST['FanName']) && !empty($_POST['FanEmail']) && !empty($_POST['FanPwd']) && !empty($_POST['FanPwdCon']) && !empty($_POST['FanSport'])) {
             $aficionado = new Aficionado($_POST['FanName'], $_POST['FanEmail'], $_POST['FanPwd'], $_POST['FanPwdCon'], $_POST['FanSport']);
             $conn = $this->db->getConnection();
-
+           
             $aficionado->register($_POST['FanPwdCon'], $conn);
         }
         exit();
@@ -57,12 +57,12 @@ class UserController
 
             try {
                 $procedure = ($userType === 'Promotor') ? 'sp_loginp' : 'sp_login';
-
+                
+                
                 $stmt = $conn->prepare("CALL $procedure(:email, :pass, @result)");
                 $stmt->bindParam(':email', $email);
                 $stmt->bindParam(':pass', $password);
                 $stmt->execute();
-                $stmt->closeCursor();
 
                 $res = $conn->query("SELECT @result AS exist")->fetch();
                 $exist = intval($res['exist']);
@@ -86,9 +86,9 @@ class UserController
                     }
 
                     header('Location: ../Vista/index.php');
-                    exit();
+                    exit(); 
                 } else {
-                    $_SESSION['login_error'][] = "Usuario o contrasena incorrectos";
+                    $_SESSION['login_error'][] = "Usuario o contraseña incorrectos";
                     header("Location: ../Vista/fan-login.php");
                     exit();
                 }
@@ -113,7 +113,6 @@ class UserController
             try {
                 $stmt = $conn->prepare("CALL sp_loginp(:email, :pass, @result)");
                 $stmt->execute([':email' => $emailp, ':pass' => $passwordp]);
-                $stmt->closeCursor();
 
                 $res = $conn->query("SELECT @result AS exist")->fetch();
                 $exist = intval($res['exist']);
@@ -133,7 +132,7 @@ class UserController
                     header('Location: ../Vista/index.php');
                     exit();
                 } else {
-                    $_SESSION['login_error'][] = "Usuario o contrasena incorrectos";
+                    $_SESSION['login_error'][] = "Usuario o contraseña incorrectos";
                     header("Location: ../Vista/fan-login.php");
                     exit();
                 }
@@ -149,6 +148,7 @@ class UserController
 
     public function logout()
     {
+        
         unset($_SESSION);
         session_destroy();
         header("Location: ../Vista/index.php");
