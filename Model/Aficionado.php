@@ -17,31 +17,31 @@ class Aficionado {
 
     public function register($FanPwdCon, $conn)
     {
+        $stmt = null;
+
         try {
-            
             $stmt = $conn->prepare("CALL sp_comprovar_email(:email, @result)");
             $stmt->execute([':email' => $this->FanEmail]);
-            
-            
+
             $res = $conn->query("SELECT @result AS exist")->fetch(PDO::FETCH_ASSOC);
             $exist = intval($res["exist"]);
 
             if ($exist === 1) {
-                echo "<span>El correo electrónico ya está registrado. Inténtelo con otro.</span>";
-                return;
+                $_SESSION['register_error'][] = "El correo electrónico ya está registrado. Inténtelo con otro.";
+                header('Location: ../Vista/fan-registration.php');
+                exit();
             }
 
-            
             if ($this->FanPwd !== $FanPwdCon) {
-                echo "<span>Las contraseñas no coinciden. Inténtelo de nuevo.</span>";
-                return;
+                $_SESSION['register_error'][] = "Las contraseñas no coinciden. Inténtelo de nuevo.";
+                header('Location: ../Vista/fan-registration.php');
+                exit();
             }
 
-            
             if ($this->FanPwd === $FanPwdCon && $exist === 0) {
-                $sql = "INSERT INTO aficionado (Name, Email, Pwd, PwdCon, Sport) 
+                $sql = "INSERT INTO aficionado (Name, Email, Pwd, PwdCon, Sport)
                         VALUES (:name, :email, :pwd, :pwdcon, :sport)";
-                
+
                 $insertStmt = $conn->prepare($sql);
                 $insertStmt->execute([
                     ':name'   => $this->FanName,
@@ -54,12 +54,11 @@ class Aficionado {
                 header('Location: ../Vista/index.php');
                 exit();
             }
-
         } catch (PDOException $e) {
-            
-            echo "<span>Error en el registro: " . $e->getMessage() . "</span>";
+            $_SESSION['register_error'][] = "Error en el registro: " . $e->getMessage();
+            header('Location: ../Vista/fan-registration.php');
+            exit();
         } finally {
-            
             $stmt = null;
         }
     }

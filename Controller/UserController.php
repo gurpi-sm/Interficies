@@ -32,6 +32,9 @@ class UserController
             $conn = $this->db->getConnection();
            
             $aficionado->register($_POST['FanPwdCon'], $conn);
+        } else {
+            $_SESSION['register_error'][] = "No se han rellenado todos los datos.";
+            header("Location: ../Vista/fan-registration.php");
         }
         exit();
     }
@@ -42,6 +45,9 @@ class UserController
             $promotor = new Promotor($_POST['ProName'], $_POST['ProPwd'], $_POST['ProPwdCon'], $_POST['ProEmail'], $_POST['ProDirection'], $_POST['ProCreditCard']);
             $conn = $this->db->getConnection();
             $promotor->registerp($_POST['ProPwdCon'], $conn);
+        } else {
+            $_SESSION['register_error'][] = "No se han rellenado todos los datos.";
+            header("Location: ../Vista/promoter-registration.php");
         }
         exit();
     }
